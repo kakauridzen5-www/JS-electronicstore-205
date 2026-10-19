@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#101827">
+    <meta name="description" content="Explore NAPERIX, a portfolio electronics store demo featuring smartphones, laptops, tablets and accessories. No real purchases.">
+    <title>NAPERIX | Electronics &amp; Gadgets — Demo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body id="top">
+    <header class="site-header">
+        <a href="#top" class="brand" aria-label="NAPERIX home">
+            <span class="brand-icon" aria-hidden="true">N</span>
+            <span class="brand-name">NAPERIX<span class="brand-dot">.</span></span>
+        </a>
+        <nav class="main-nav" aria-label="Main navigation">
+            <a href="#top">Home</a>
+            <a href="#products">Products</a>
+            <a href="#" id="cartLink" class="cart-link" aria-controls="cartPanel" aria-expanded="false">
+                🛒 Cart (<span id="cartCount">0</span>)
+            </a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <p class="hero-tag">NEXT-LEVEL ELECTRONICS</p>
+                <h1>Upgrade Your Everyday.<span>Discover NAPERIX.</span></h1>
+                <p class="hero-description">Explore smartphones, laptops, tablets, and accessories — all in one place.</p>
+                <a href="#products" class="hero-button">Shop Products →</a>
+                <div class="hero-categories" aria-label="Featured categories">
+                    <span>SMARTPHONES</span><span aria-hidden="true">•</span>
+                    <span>LAPTOPS</span><span aria-hidden="true">•</span>
+                    <span>GADGETS</span>
+                </div>
+            </div>
+        </section>
+
+        <p class="demo-notice"><strong>Portfolio Demo:</strong> Products and prices are for demonstration. No real orders or payments are processed.</p>
+
+        <section class="controls" aria-label="Product filters">
+            <select id="sortProducts" aria-label="Sort products">
+                <option value="default">Sort By</option>
+                <option value="price-low">Price: Low to High</option>
+                <option value="price-high">Price: High to Low</option>
+                <option value="rating-high">Rating: High to Low</option>
+            </select>
+            <input type="search" id="searchInput" placeholder="Search products..." aria-label="Search products">
+            <select id="categoryFilter" aria-label="Product category">
+                <option value="all">All Categories</option>
+            </select>
+            <select id="maxPrice" aria-label="Maximum product price">
+                <option value="all">Any Price</option>
+                <option value="250">Under $250</option>
+                <option value="500">Under $500</option>
+                <option value="1000">Under $1000</option>
+                <option value="2000">Under $2000</option>
+            </select>
+            <button type="button" id="resetFilters">Reset Filters</button>
+        </section>
+
+        <p id="resultsCount" class="results-count" role="status" aria-live="polite"></p>
+        <section id="products" class="products" aria-label="Available products"></section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-about">
+                <a href="#top" class="footer-brand">NAPERIX<span>.</span></a>
+                <p>Upgrade your everyday with technology that moves you forward.</p>
+                <p class="footer-tagline">YOUR NEXT TECH UPGRADE</p>
+            </div>
+            <div class="footer-links">
+                <h2>Explore</h2>
+                <a href="#top">Home</a>
+                <a href="#products">Shop Products</a>
+            </div>
+            <div class="footer-contact">
+                <h2>What We Offer</h2>
+                <p>Smartphones</p>
+                <p>Laptops &amp; Tablets</p>
+                <p>Accessories &amp; Gadgets</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 NAPERIX. Frontend demo project.</p>
+            <a href="#top" class="back-to-top">Back to top ↑</a>
+        </div>
+    </footer>
+
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <aside class="cart-panel" id="cartPanel" aria-label="Shopping cart" aria-hidden="true" inert>
+        <div class="cart-header">
+            <h2>Your Cart</h2>
+            <button type="button" id="closeCart" aria-label="Close cart">×</button>
+        </div>
+        <div id="cartItems" class="cart-items"></div>
+        <div class="cart-footer">
+            <h3>Total: $<span id="cartTotal">0.00</span></h3>
+            <button type="button" id="checkoutButton">Demo Checkout</button>
+        </div>
+    </aside>
+
+    <div class="product-modal-overlay" id="productModalOverlay" aria-hidden="true" inert>
+        <div class="product-modal" id="productModal" role="dialog" aria-modal="true" aria-labelledby="modalProductTitle">
+            <button type="button" id="closeProductModal" aria-label="Close product details">×</button>
+            <img id="modalProductImage" src="" alt="Product">
+            <h2 id="modalProductTitle"></h2>
+            <p id="modalProductCategory"></p>
+            <p id="modalProductDescription"></p>
+            <p id="modalProductRating"></p>
+            <h3>$<span id="modalProductPrice"></span></h3>
+            <button type="button" id="modalAddToCart">Add to Cart</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
