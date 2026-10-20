@@ -201,7 +201,24 @@ function applyFilters() {
         });
     }
 
-    displayProducts(filteredProducts);
+    
+const totalPages = Math.max(1, Math.ceil(filteredProducts.length / PAGE_SIZE));
+
+currentPage = Math.min(currentPage, totalPages);
+
+const start = (currentPage - 1) * PAGE_SIZE;
+const pageProducts = filteredProducts.slice(start, start + PAGE_SIZE);
+
+displayProducts(pageProducts);
+
+resultsCount.textContent = `${filteredProducts.length} products found`;
+pageInfo.textContent = `Page ${currentPage} of ${totalPages}`;
+
+pagination.style.display = totalPages > 1 ? "flex" : "none";
+
+prevPage.disabled = currentPage === 1;
+nextPage.disabled = currentPage === totalPages;
+
 }
 
 // Filter event listeners
