@@ -7,6 +7,14 @@ const sortProducts = document.getElementById("sortProducts");
 const maxPrice = document.getElementById("maxPrice");
 const resetFilters = document.getElementById("resetFilters");
 
+const pagination = document.getElementById("pagination");
+const prevPage = document.getElementById("prevPage");
+const nextPage = document.getElementById("nextPage");
+const pageInfo = document.getElementById("pageInfo");
+
+const PAGE_SIZE = 12;
+let currentPage = 1;
+
 const cartLink = document.getElementById("cartLink");
 const cartCount = document.getElementById("cartCount");
 const cartPanel = document.getElementById("cartPanel");
