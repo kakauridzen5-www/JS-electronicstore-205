@@ -43,7 +43,7 @@ const electronicCategories = [
 
 let allProducts = [];
 let currentModalProduct = null;
-// Recover safely if the saved cart is missing or invalid.
+// Recover 
 let cart = [];
 try {
     const storedCart = JSON.parse(localStorage.getItem("cart") || "[]");
@@ -76,7 +76,7 @@ function escapeHtml(text) {
     });
 }
 
-// Loading products and handling errors
+// Loading products | handling errors
 async function getProducts() {
     productsContainer.innerHTML = '<p class="loading-message">Loading products...</p>';
     resultsCount.textContent = "";
@@ -166,7 +166,7 @@ function displayProducts(products) {
     });
 }
 
-// Search, category, price and sorting
+// Search, category, price, sorting
 function applyFilters() {
     const searchText = searchInput.value.toLowerCase().trim();
     const selectedCategory = categoryFilter.value;
@@ -220,6 +220,20 @@ prevPage.disabled = currentPage === 1;
 nextPage.disabled = currentPage === totalPages;
 
 }
+
+prevPage.addEventListener("click", function() {
+    if (currentPage > 1) {
+        currentPage--;
+        applyFilters();
+        productsContainer.scrollIntoView({ behavior: "smooth" });
+    }
+});
+
+nextPage.addEventListener("click", function() {
+    currentPage++;
+    applyFilters();
+    productsContainer.scrollIntoView({ behavior: "smooth" });
+});
 
 // Filter event listeners
 searchInput.addEventListener("input", applyFilters);
@@ -326,7 +340,7 @@ function renderCart() {
     cartTotal.textContent = total.toFixed(2);
 }
 
-// Open shopping cart
+// Open  cart
 function openCart() {
     renderCart();
     cartPanel.inert = false;
@@ -337,7 +351,7 @@ function openCart() {
     closeCart.focus();
 }
 
-// Close shopping cart
+// Close  cart
 function closeCartPanel() {
     if (!cartPanel.classList.contains("open")) return;
     if (cartPanel.contains(document.activeElement)) cartLink.focus();
